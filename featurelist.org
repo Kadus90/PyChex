@@ -1,0 +1,11 @@
+Here is a running list of the features we hope to include in PyChex.
+
+* User Customization
+** Board
+** Pieces
+* Turn Timer
+* Pause Button
+* Animations
+* Piece Counter
+* Keyboard Shortcuts
+** Close the window
