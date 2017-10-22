@@ -4,10 +4,21 @@ pygame.init()
 screen = pygame.display.set_mode((700, 700))
 done = False
 
+clock = pygame.time.Clock()
+
+
 while not done:
+
+    pressed = pygame.key.get_pressed()
+    ctrl_held = pressed[pygame.K_LCTRL] or pressed[pygame.K_RCTRL]
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_w and ctrl_held:
+                done = True
+            if event.key == pygame.K_ESCAPE:
+                done = True
 
         startX = 50
         startY = 50
@@ -21,3 +32,4 @@ while not done:
                 pygame.draw.rect(screen, (000, 000, 000), pygame.Rect(startX + shift + (150 * j), startY + (75 * i), sqW, sqH))
 
     pygame.display.flip()
+    clock.tick(60)
