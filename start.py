@@ -24,6 +24,11 @@ class Square(pygame.sprite.Sprite):
         # update functions (put crap below to validate syntax)
         x_coord += 0
 
+class Player():
+    """ Player - user and computer
+    Returns: player object
+    Function: uodate, turns, color
+    Attributes: """
 
 pygame.init()
 screen = pygame.display.set_mode((700, 700))
