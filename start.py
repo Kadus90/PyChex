@@ -1,8 +1,20 @@
 import sys, pygame, logging
+from Board import Board
+from Square import Square
+
+SCREEN_SIZE = 700
+SQUARE_SIZE = 75
+MARGIN_SIZE = 50
+BOARD_WIDTH = 8
+BOARD_HEIGHT = 8
+BACKGROUND = (255, 255, 255)
+FOREGROUND = (0, 0, 0)
+BOARD_BORDER = (255, 0, 0)
 
 pygame.init()
-screen = pygame.display.set_mode((700, 700))
+screen = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
 done = False
+
 
 clock = pygame.time.Clock()
 
@@ -19,23 +31,8 @@ while not done:
             if event.key == pygame.K_ESCAPE:
                 done = True
 
-        startX = 50
-        startY = 50
-        pygame.draw.rect(screen, (255, 000, 000), pygame.Rect(startX, startY, 600, 600))
+        game_board = Board(TRUE, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
 
-        sqW = 75
-        sqH = 75
-
-        # generate IDs:
-        # blue_blobs = dict(enumerate([Classname(VALUES) for i in range(SOME_RANGE)]))
-
-        for i in range(0, 8):
-            shift = 75 if (i % 2) == 0 else 0
-            for j in range (0, 4):
-                pygame.draw.rect(screen, (000, 000, 000), pygame.Rect(startX + shift + (150 * j), startY + (75 * i), sqW, sqH))
-
-        # for use later - function below spits out coords of mouse anytime it is moved by the user
-        # logging.warning(pygame.mouse.get_pos())
 
     pygame.display.flip()
     clock.tick(60)
