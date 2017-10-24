@@ -31,8 +31,7 @@ while not done:
             if event.key == pygame.K_ESCAPE:
                 done = True
 
-        game_board = Board(TRUE, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
-
+        game_board = Board(True, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
+        game_board.draw(screen)
 
     pygame.display.flip()
-    clock.tick(60)

@@ -16,5 +16,5 @@ class Square():
         self.cart_x = cart_x
         self.cart_y = cart_y
 
-    def draw(self, x, y, width, height, background):
-        pygame.draw.rect(screen, self.background, pygame.Rect(self.x, self.y, self.width, self.height))
+    def draw(self, screen):
+        pygame.draw.rect(screen, self.background, pygame.Rect(self.x, self.y, self.length, self.length))
