@@ -1,17 +1,37 @@
 Here is a running list of the features we hope to include in PyChex.
 
-* User Customization
-** Board
-** Pieces
+* AI
+** Difficulty levels
+** Multiplayer
+* Movement System
+** Mainly for Pieces class
+** Highlight movable aeas?
+** Set limitations per piece based on location and surrounding pieces
+** Special rules (knighting, etc)
+* Messaging Panel
+** Notifications for user
+** Basic in game options
+** Record of CPU actions (maybe user too)
 * Turn Timer
-* Pause Button
-* Animations
-* Piece Counter
+** Pause Button
+* Piece rendering
+** Use images, sprites, clipart?
+** Animations
+* Game Control Module
+** Settings
+** Restart game
+** New game
+** Tracking scores
+* Scoring System
+** Piece Counter
+** Show scores across recent games
 * Keyboard Shortcuts
-** Close the window
+** Close the window :DONE:
 **** Added in support for ctl+w & esc key to escape.
 * Sounds
 ** Game Music
+* User Customization
+** Board
 ** Pieces
 *** Collecting
 *** Upgrading

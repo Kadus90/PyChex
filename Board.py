@@ -17,6 +17,7 @@ class Board ():
         self.square_size = square_size
         self.squares = dict()
 
+        # alternate creation of black and white squares
         for i in range (0, self.width):
             for j in range (0, self.height):
                 if (i % 2 == 0 and j % 2 == 0):
@@ -36,10 +37,11 @@ class Board ():
                     square_active = False
                     # print("i = "+ str(i)+" and j = "+str(j)+" | case 4 fired -- white")
 
+                # set x and y coordinates for each square
                 x = (i * 75) + self.margin
                 y = (j * 75) + self.margin
 
-
+                # instantiate each square, passing in required properties
                 new_square = Square("bob", x, y, self.square_size, square_bg, square_active, i, j)
                 self.squares[(i,j)] = new_square
 
@@ -48,4 +50,3 @@ class Board ():
         for i in range (0, self.width):
             for j in range (0, self.height):
                 self.squares[(i,j)].draw(screen)
-
