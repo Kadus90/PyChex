@@ -9,10 +9,10 @@ BOARD_WIDTH = 8
 BOARD_HEIGHT = 8
 BACKGROUND = (255, 255, 255)
 FOREGROUND = (0, 0, 0)
-BOARD_BORDER = (255, 0, 0)
-
+SCREEN_BACKGROUND = (66, 66, 99) 
 pygame.init()
 screen = pygame.display.set_mode((SCREEN_SIZE, SCREEN_SIZE))
+screen.fill(SCREEN_BACKGROUND)
 done = False
 
 
@@ -34,4 +34,5 @@ while not done:
         game_board = Board(True, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
         game_board.draw(screen)
 
+    
     pygame.display.flip()
