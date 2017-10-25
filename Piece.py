@@ -1,12 +1,20 @@
 import pygame
 
-class Piece():
+class Piece(pygame.sprite.Sprite):
     """ A piece is used to play PyChex allowing for movement around the board for each player.
     Returns: piece object
     Function:
-    Attributes: location, diameter, color"""
+    Attributes: active, color, power_level, cart_x, cart_y, x, y"""
 
-    def __init__(self, location, diameter, color):
-        self.location = location
-        self.diameter = diameter
+    
+    def __init__(self, active, color, power_level, cart_x, cart_y, x, y):
+        pygame.sprite.Sprite.__init(self)
+        self.active = active
         self.color = color
+        self.power_level = power_level
+        self.cart_x = cart_x
+        self.cart_y = cart_y
+        self.x = x
+        self.y = y
+
+    
