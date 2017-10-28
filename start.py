@@ -1,16 +1,12 @@
-import sys, pygame, logging
-from Board import Board
-from Square import Square
+""" This is the main module for PyChex. """
 
-# constants to define values for board and square
-SCREEN_SIZE = 700
-SQUARE_SIZE = 75
-MARGIN_SIZE = 50
-BOARD_WIDTH = 8
-BOARD_HEIGHT = 8
-BACKGROUND = (255, 255, 255)
-FOREGROUND = (0, 0, 0)
-SCREEN_BACKGROUND = (66, 66, 99)
+import sys, pygame, logging
+import base64
+import uuid
+
+from constants import *
+from board import Board
+from square import Square
 
 # start pygame
 pygame.init()
@@ -23,8 +19,11 @@ clock = pygame.time.Clock()
 
 while not done:
 
-    # check to see if user pressed a key
+    # check to see if user pressed a key or click a mouse
     pressed = pygame.key.get_pressed()
+    clicked = pygame.mouse.get_pressed()
+
+    # check for Control modifier key
     ctrl_held = pressed[pygame.K_LCTRL] or pressed[pygame.K_RCTRL]
     for event in pygame.event.get():
         # check if user presses x button in corner to close window
@@ -37,10 +36,16 @@ while not done:
             # esc also closes window
             if event.key == pygame.K_ESCAPE:
                 done = True
+        # Watches for mouse clicks
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            game_board.click_check()
 
         # instantiate game board and draw to screen
         game_board = Board(True, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
         game_board.draw(screen)
 
+        # Generates pieces
+        game_board.piece_start(screen)
 
-    pygame.display.flip()
+
+        pygame.display.flip()
