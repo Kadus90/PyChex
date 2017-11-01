@@ -1,12 +1,10 @@
 """ This is the main module for PyChex. """
 
 import sys, pygame, logging
-import base64
-import uuid
 
 from constants import *
-from board import Board
-from square import Square
+from Board import Board
+from Square import Square
 
 # start pygame
 pygame.init()
@@ -44,8 +42,8 @@ while not done:
         game_board = Board(True, BOARD_WIDTH, BOARD_HEIGHT, BACKGROUND, FOREGROUND, MARGIN_SIZE, SQUARE_SIZE)
         game_board.draw(screen)
 
+        """
         # Generates pieces
         game_board.piece_start(screen)
-
-
+        """
         pygame.display.flip()

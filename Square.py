@@ -9,8 +9,8 @@ class Square():
     Functions: draw,
     Attributes: x_coordinate, y_coodinate, width, height, background_color """
 
-    def __init__(self, id, x, y, length, background, active, cart_x, cart_y, image_drop):
-        self.id = id
+    def __init__(self, name, x, y, length, background, active, cart_x, cart_y, image_drop):
+        self.name = name
         self.x = x
         self.y = y
         self.length = length

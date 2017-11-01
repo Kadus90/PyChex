@@ -1,5 +1,7 @@
 import pygame
+
 from pygame.locals import*
+from constants import *
 
 class Piece(pygame.sprite.Sprite):
     """ A piece is used to play PyChex allowing for movement around the board for each player.
