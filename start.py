@@ -5,8 +5,8 @@ import base64
 import uuid
 
 from constants import *
-from board import Board
-from square import Square
+from Board import Board
+from Square import Square
 
 # start pygame
 pygame.init()

@@ -3,8 +3,8 @@
 import pygame
 
 from constants import *
-from square import Square
-from piece import Piece
+from Square import Square
+from Piece import Piece
 
 class Board ():
     """ Game board for checkers
