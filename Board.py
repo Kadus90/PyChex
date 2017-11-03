@@ -1,6 +1,9 @@
 """ This is the controller for the game board of PyChex. """
 
 import pygame
+# import debug module - use logging.debug() to print debug info
+import logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 from constants import *
 from Square import Square
@@ -54,6 +57,10 @@ class Board ():
                 new_square = Square(str('zone' + (str(i)) + (str(j))), x, y, self.square_size, square_bg, square_active, i, j, image_drop)
                 self.squares[(i,j)] = new_square
 
+                if self.squares[(i,j)].active == true:
+                    new_piece = Piece(str('chip' + str(i) + str(j)), 1, self.squares[(i,j)].name)  # need to think about if drop is a valid prop?  should we have it or better way to determine where it is?
+
+
                 """
                 # instantiate each piece, passing in required properties
                 for x in self.squares:
@@ -76,13 +83,15 @@ class Board ():
         mouse_x, mouse_y = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
 
-        for i in range (self.squares()):
-            for j in range (0, self.square_size):
+        for i in range (0, self.width):
+            for j in range (0, self.height):
                 # set x and y coordinates for each square
                 x = (i * 75) + self.margin
                 y = (j * 75) + self.margin
                 if ((x + self.square_size) > mouse_x > x) and ((y + self.square_size) > mouse_y > y) == True:
-                    print(self.squares[(i,j)].id)
+                    # check what props squares has here
+                    print(self.squares[(i,j)].name)
+                    return self.squares[(i,j)].name
 """
     # Generates a piece (currently only 1 loading)
     def piece_start(self, screen):
