@@ -24,7 +24,10 @@ class Board ():
         self.margin = margin
         self.square_size = square_size
         self.squares = {}
-        self.pieces = dict
+        self.pieces = {}
+
+        # count for naming pieces
+        piece_count = 0
 
         # alternate creation of black and white squares
         for i in range (0, self.width):
@@ -54,28 +57,27 @@ class Board ():
                 image_drop = x + 5, y + 5
 
                 # instantiate each square, passing in required properties
-                new_square = Square(str('zone' + (str(i)) + (str(j))), x, y, self.square_size, square_bg, square_active, i, j, image_drop)
+                new_square = Square(str('square' + (str(i)) + (str(j))), x, y, self.square_size, square_bg, square_active, i, j, image_drop)
                 self.squares[(i,j)] = new_square
 
-                if self.squares[(i,j)].active == true:
-                    new_piece = Piece(str('chip' + str(i) + str(j)), 1, self.squares[(i,j)].name)  # need to think about if drop is a valid prop?  should we have it or better way to determine where it is?
+                # instatiate each piece if square is labelled as active
+                if self.squares[(i,j)].active == True:
+                    new_piece = Piece(str('piece' + str(i) + str(j)), 1, self.squares[(i,j)].name, image_drop)
+                    self.pieces[piece_count] = new_piece
+                    piece_count = piece_count + 1
 
-
-                """
-                # instantiate each piece, passing in required properties
-                for x in self.squares:
-                    if self.squares[(i,j)].active == True and x != 3 or 4:
-                        new_piece = Piece('chip'+str(x), 1, self.squares[(i,j)].name, self.squares[(i,j)].image_drop)
-                        self.pieces[(x)] = new_piece
-
-                """
-                #self.all_squares.update = self.squares[(i,j)]
 
     # Draw the Board
     def draw(self, screen):
+        piece_count = 0
         for i in range (0, self.width):
             for j in range (0, self.height):
                 self.squares[(i,j)].draw(screen)
+                # TODO - create piece unless square isnt actie or middle rows
+                # if self.squares[(i,j)].active == True and (self.squares[(i,j)].cart_y != 3 or self.squares[(i,j)].cart_y != 4):
+                #     # need better way to identif piece to be drawn
+                #     self.pieces[piece_count].draw(screen)
+                #     piece_count = piece_count + 1
 
 
     # Check if a square is clicked
@@ -90,7 +92,6 @@ class Board ():
                 y = (j * 75) + self.margin
                 if ((x + self.square_size) > mouse_x > x) and ((y + self.square_size) > mouse_y > y) == True:
                     # check what props squares has here
-                    print(self.squares[(i,j)].name)
                     return self.squares[(i,j)].name
 """
     # Generates a piece (currently only 1 loading)

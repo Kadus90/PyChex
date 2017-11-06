@@ -16,6 +16,6 @@ class Piece(pygame.sprite.Sprite):
         self.drop = drop
 
 
-    def generate(self, screen):
+    def draw(self, screen):
         chip = pygame.image.load('red_piece.bmp')
         screen.blit(chip, self.drop)
